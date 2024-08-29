@@ -1,12 +1,16 @@
 # NeoVim Flake
+
 Flake based off the incredible work of [NVF](https://github.com/NotAShelf/nvf)
 Created for the purpose of:
+
 - Pre-configuring NeoVim using the Home-Manager Module provided by NVF
 - Syncing configurations across machines
 - Preventing breaking changes when nixpkgs updates
 
 # How To Use
-Simply add this repository to your inputs, and add the module to your Home-Manager modules. 
+
+Simply add this repository to your inputs, and add the module to your Home-Manager modules.
+
 ```nix
 {
   inputs.neovim.url = "github:xvrqt/neovim-flake";
@@ -18,15 +22,15 @@ Simply add this repository to your inputs, and add the module to your Home-Manag
       modules = [
         # ...
         home-manager.nixosModules.home-manager {
-            home-manager = {
+          home-manager = {
+            # ...
+            users.xvrqt = {...}: {
+              imports = [
                 # ...
-                users.xvrqt = {...}: {
-                    imports = [
-                        # ...
-                        neovim.homeManagerModules.${system}.default
-                    ];
-               };
+                neovim.homeManagerModules.${system}.default
+              ];
             };
+          };
         };
       ];
     };
