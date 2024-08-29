@@ -16,6 +16,7 @@ Simply add this repository to your inputs, and add the module to your Home-Manag
   inputs.neovim.url = "github:xvrqt/neovim-flake";
   outputs {neovim, ...}: let
     system = "x86_64-linux"; # Or whatever
+    machine = "spark"; # Or whatever
   in {
     nixosConfigurations.${machine} = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -27,7 +28,7 @@ Simply add this repository to your inputs, and add the module to your Home-Manag
             users.xvrqt = {...}: {
               imports = [
                 # ...
-                neovim.homeManagerModules.${system}.default
+                neovim.homeManagerModules.${system}.default # <-- Important Bit
               ];
             };
           };
