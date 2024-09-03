@@ -1,5 +1,5 @@
 # Customize my NeoVim instance
-{
+{pkgs, ...}: {
   programs.nvf = {
     enable = true;
 
@@ -7,9 +7,9 @@
       vim = {
         viAlias = false;
         vimAlias = true;
-        #       luaConfigPost = ''
-        #         require('lspconfig').glsl_analyzer.setup{}
-        #       '';
+        luaConfigPost = ''
+          require('lspconfig').glsl_analyzer.setup{}
+        '';
         debugMode = {
           enable = false;
           level = 16;
@@ -41,8 +41,8 @@
         languages = {
           enableLSP = true;
           enableFormat = true;
-          #enableTreesitter = true;
-          enableTreesitter = false;
+          enableTreesitter = true;
+          #enableTreesitter = false;
           enableExtraDiagnostics = true;
 
           ts.enable = true;
@@ -110,7 +110,14 @@
           nvimBufferline.enable = true;
         };
 
-        treesitter.context.enable = true;
+        treesitter = {
+          context.enable = true;
+          addDefaultGrammars = false;
+          grammars = [
+            pkgs.glsl_analyzer
+            pkgs.vimPlugins.nvim-treesitter-parsers.glsl
+          ];
+        };
 
         binds = {
           whichKey.enable = true;
@@ -158,6 +165,7 @@
             image-nvim.enable = false;
           };
         };
+
         notes = {
           obsidian.enable = false;
           orgmode.enable = false;
