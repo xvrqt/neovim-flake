@@ -104,6 +104,7 @@
 
         filetree = {
           nvimTree.enable = true;
+          nvimTree.setupOpts.git.enable = true;
         };
 
         tabline = {
@@ -167,7 +168,7 @@
         };
 
         notes = {
-          obsidian.enable = false;
+          obsidian.enable = true;
           orgmode.enable = false;
           mind-nvim.enable = false;
           todo-comments.enable = true;
