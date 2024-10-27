@@ -42,7 +42,6 @@
           enableLSP = true;
           enableFormat = true;
           enableTreesitter = true;
-          #enableTreesitter = false;
           enableExtraDiagnostics = true;
 
           ts.enable = true;
@@ -168,7 +167,7 @@
         };
 
         notes = {
-          #obsidian.enable = true;
+          obsidian.enable = true;
           orgmode.enable = false;
           mind-nvim.enable = false;
           todo-comments.enable = true;
