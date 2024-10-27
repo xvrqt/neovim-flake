@@ -15,7 +15,6 @@
           level = 16;
           logFile = "/tmp/nvim.log";
         };
-        ui.fastaction = true;
 
         spellcheck.enable = true;
 
