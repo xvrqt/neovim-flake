@@ -2,6 +2,7 @@
 {pkgs, ...}: {
   programs.nvf = {
     enable = true;
+    enableManPages = true;
 
     settings = {
       vim = {
@@ -167,7 +168,12 @@
         };
 
         notes = {
-          obsidian.enable = true;
+          obsidian = {
+            enable = true;
+            setupOpts = {
+              dir = "~/notes";
+            };
+          };
           orgmode.enable = false;
           mind-nvim.enable = false;
           todo-comments.enable = true;
