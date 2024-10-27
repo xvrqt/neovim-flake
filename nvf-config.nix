@@ -2,7 +2,7 @@
 {pkgs, ...}: {
   programs.nvf = {
     enable = true;
-    enableManPages = true;
+    enableManpages = true;
 
     settings = {
       vim = {
