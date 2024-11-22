@@ -169,7 +169,7 @@
 
         notes = {
           obsidian = {
-            enable = true;
+            enable = false;
             setupOpts = {
               dir = "~/notes";
             };
